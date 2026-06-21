@@ -6,7 +6,7 @@ My **MSc thesis in Electronic Engineering**: an EEG study analysing how brain ac
 > Title: *Brain Signal Analysis During Sustained Attention*. Author: Amin Behzadnia.
 > Supervisor: Dr. Majid Ghoshuni · Advisor: Dr. Soghra Akbari Chermahini.
 
-> **Note:** The thesis document is written in Persian. This README summarises the study in English.
+📄 A full English summary of the thesis is in [`Thesis-Summary.md`](Thesis-Summary.md).
 
 ## Overview
 
@@ -41,14 +41,37 @@ Sustained attention — the ability to keep focus on a continuous, repetitive ta
 | Statistics | SPSS (paired *t*-test, Pearson correlation) |
 | Bands analysed | Delta, Theta, Alpha, Beta, Gamma |
 
+## Code
+
+The MATLAB pipeline used in the thesis is in [`code/`](code/):
+
+- **Data import & conversion** — `EEG_Reading2.m`, `txt2mat_A.m` (read raw recordings via BioSig into `.mat`).
+- **Event extraction** — `Ext_Stim.m`, `Ext_Stim_A.m` (extract stimulus/response events per modality).
+- **Filtering** — `Filtering3.m` (elliptic high-pass / low-pass and 50 Hz notch filtering, fs = 250 Hz).
+- **Preprocessing pipeline** — `Prep_P1_A.m` … `Prep_P4_A.m` (staged epoching and artefact handling).
+- **Processing** — `Proc_P1_A.m`, `Proc_P2_A.m`.
+- **ERP components** — `N200compute.m`, `P200compute.m` (compute N200 / P200 event-related potentials).
+- **Grand averaging & plotting** — `grandav.m`, `Grandplot.m`.
+- **Channel montage** — `Standard-10-20-Cap19.locs` (19-channel 10–20 electrode locations).
+
 ## Repository Structure
 
 ```
 EEG-Attention-Analysis-MSc-Thesis/
 ├── README.md
-└── thesis/
-    └── MSc-Thesis-EEG-Sustained-Attention.pdf   (Persian)
+├── Thesis-Summary.md                            # Full English summary (abstract)
+└── code/                                         # MATLAB EEG/ERP processing pipeline
+    ├── EEG_Reading2.m, txt2mat_A.m
+    ├── Ext_Stim.m, Ext_Stim_A.m
+    ├── Filtering3.m
+    ├── Prep_P1_A.m … Prep_P4_A.m
+    ├── Proc_P1_A.m, Proc_P2_A.m
+    ├── N200compute.m, P200compute.m
+    ├── grandav.m, Grandplot.m
+    └── Standard-10-20-Cap19.locs
 ```
+
+> The MATLAB scripts rely on the [EEGLAB](https://eeglab.org/) / BioSig toolboxes for EEG import and processing.
 
 ## Related Work
 
