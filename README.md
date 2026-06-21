@@ -51,6 +51,7 @@ The MATLAB pipeline used in the thesis is in [`code/`](code/):
 - **Preprocessing pipeline** — `Prep_P1_A.m` … `Prep_P4_A.m` (staged epoching and artefact handling).
 - **Processing** — `Proc_P1_A.m`, `Proc_P2_A.m`.
 - **ERP components** — `N200compute.m`, `P200compute.m` (compute N200 / P200 event-related potentials).
+- **P300 extraction** — `Read_Data_P300.m` (load EEG, filter, reject EOG/EEG-artefact trials, and separate and average P300 ERPs by stimulus type at Pz/Cz/Fz).
 - **Grand averaging & plotting** — `grandav.m`, `Grandplot.m`.
 - **Channel montage** — `Standard-10-20-Cap19.locs` (19-channel 10–20 electrode locations).
 
@@ -67,6 +68,7 @@ EEG-Attention-Analysis-MSc-Thesis/
     ├── Prep_P1_A.m … Prep_P4_A.m
     ├── Proc_P1_A.m, Proc_P2_A.m
     ├── N200compute.m, P200compute.m
+    ├── Read_Data_P300.m
     ├── grandav.m, Grandplot.m
     └── Standard-10-20-Cap19.locs
 ```
